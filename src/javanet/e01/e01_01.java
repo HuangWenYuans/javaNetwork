@@ -6,7 +6,7 @@
  * Description:
  */
 
-package javanet.c01;
+package javanet.e01;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ import java.util.List;
  * @create 2019/3/5
  * @since 1.0.0
  */
-public class homework1_01 {
+public class e01_01 {
     public static void main(String[] args) {
         File file = new File("Test.txt");
         if (!file.exists()) {
