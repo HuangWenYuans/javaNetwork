@@ -1,12 +1,5 @@
-/**
- * Copyright (C), 2019
- * FileName: TemperatureServer
- * Author:   huangwenyuan
- * Date:     2019/04/02 下午 07:35
- * Description: 温度曲线服务端程序
- */
 
-package javanet.l04.folder2;
+package javanet.l04.folder3;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -35,7 +28,7 @@ import java.util.List;
  * @create 2019/04/02
  * @since 1.0.0
  */
-public class TemperatureServer {
+public class NewTemperatureServer {
     public static void main(String[] args) {
         byte[] inBuff = new byte[1024];
         DatagramPacket inPacket = new DatagramPacket(inBuff, inBuff.length);

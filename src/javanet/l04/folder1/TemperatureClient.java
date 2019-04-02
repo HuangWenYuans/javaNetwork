@@ -8,7 +8,6 @@
 
 package javanet.l04.folder1;
 
-import java.io.IOException;
 import java.net.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +28,7 @@ public class TemperatureClient {
             Random random = new Random();
             List<Integer> list = new ArrayList<>();
 
-            for (int i = 0; i < 24; i++) {
+            for (int i = 0; i <= 24; i++) {
                 //生成一个0到75之间的随机数
                 int num = random.nextInt(75);
                 //温度为-30到45之间的数字
@@ -41,17 +40,11 @@ public class TemperatureClient {
                 //设置数据
                 outPacket.setData(buff);
                 //每隔一秒发送一次
-                Thread.sleep(1000);
+                //Thread.sleep(1000);
                 //发送数据
                 datagramSocket.send(outPacket);
             }
-        } catch (SocketException e) {
-            e.printStackTrace();
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
