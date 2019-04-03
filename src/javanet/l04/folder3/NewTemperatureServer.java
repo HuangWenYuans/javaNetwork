@@ -114,17 +114,5 @@ class PaintChart extends ApplicationFrame {
             dataset.addSeries(xySeries);
         }
         return dataset;
-
-
-        //final XYSeries chrome = new XYSeries("Chrome");
-        //chrome.add(1.0, 4.0);
-        //chrome.add(2.0, 5.0);
-        //chrome.add(3.0, 6.0);
-        //final XYSeries iexplorer = new XYSeries("InternetExplorer");
-        //iexplorer.add(3.0, 4.0);
-        //iexplorer.add(4.0, 5.0);
-        //iexplorer.add(5.0, 4.0);
-
-
     }
 }
