@@ -29,7 +29,7 @@ import java.net.URL;
 public class UrlReader {
     public static void main(String[] args) throws IOException {
         //需要抓取的网页的URL
-        URL url = new URL("http://localhost:8888/practice/NewFile.html");
+        URL url = new URL("http://localhost:8888/practice1/NewFile.html");
         BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream()));
         String line;
         String htmlText = "";
