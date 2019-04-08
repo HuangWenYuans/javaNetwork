@@ -1,0 +1,30 @@
+1、编译Java  Application 源程序文件将产生相应的字节码文件，这些字节码文件的扩展名为(   B   )。
+         A.  java                      B.  class
+         C.  html                      D.  exe
+2、设int型变量x = 1 , y = 2 , z = 3，则表达式  y＋＝z－－/x++  的值是(   D   )。
+         A.    3                        B.    3. 5
+         C.    4                        D.    5
+3、在Java  Applet程序用户自定义的Applet子类中，一般需要重载父类的(    D  )方法来完成一些画图操作。
+    A.   start( )                    B.   stop( )
+    C.   init( )                     D.   paint( )
+4、不允许作为类及类成员的访问控制符的是(  C    )。
+    A.   public                    B.   private
+    C.   static                     D.   protected
+5、为AB类的一个无形式参数无返回值的方法method书写方法头，使得使用类名AB作为前缀就可以调用它，该方法头的形式为(  A   )。
+    A. static  void  method( )                    B. public  void  method( )
+    C. final  void  method( )                      D. abstract  void  method( )
+6、下列浏览器中，可以运行HTML中的Applet，而忽略其他HTML命令的是(   D   )。
+    A.  Netscape 3.0                     B.  Internet Explorer5.0
+    C.  Hot Java                        D.  Appletviewer
+7、以下哪一个不是JAVA的标准数据流(  D    )。
+    A.  标准输出数据流              B.  标准输入数据流
+    C.  标准错误数据流              D.  标准运算数据流
+8、下面声明数组的写法错误（ D  ）。
+A.  int  a[ ];                    B:  int[ ]  a;
+C:  int[ ][ ]  a[3][ ];              D;  int[ ][ ] a[ ][3];
+9: 设x为float型变量，y为double型变量，a为int型变量，b为long型变量， c为char型变量，则表达式x+y*a/x+b/y+c的值为(  C   )类型。
+    A:  int                         B:long
+C:  double                      D:char
+10: x=2.5,a=7,y=4,则表达式x+a%3*(int)x%(int)y的值为(   C   )。
+A:  2.5                         B:3.5
+C:  4.5                         D:5.5
