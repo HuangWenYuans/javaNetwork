@@ -8,13 +8,8 @@
 
 package javanet.c05.practice2;
 
-import sun.security.tools.keytool.Main;
 
-import javax.print.DocFlavor;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
