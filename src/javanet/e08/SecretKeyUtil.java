@@ -8,13 +8,13 @@
 
 package javanet.e08;
 
+
+import sun.misc.BASE64Encoder;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.security.Key;
-import java.security.KeyPair;
-import java.security.KeyPairGenerator;
-import java.security.NoSuchAlgorithmException;
+import java.security.*;
 
 /**
  * 功能描述:
@@ -31,8 +31,29 @@ public class SecretKeyUtil {
 
     public static void main(String[] args) throws NoSuchAlgorithmException {
         generateKeyPair();
+        genKeyPair();
 
+    }
 
+    private static void genKeyPair() throws NoSuchAlgorithmException {
+        SecureRandom secureRandom = new SecureRandom();
+        // 为RSA算法创建一个KeyPairGenerator对象 
+        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(ALGORITHM);
+        // 利用上面的随机数据源初始化这个KeyPairGenerator对象
+        keyPairGenerator.initialize(KEY_SIZE, secureRandom);
+
+        // 生成密匙对
+        KeyPair keyPair = keyPairGenerator.generateKeyPair();
+        Key publicKey = keyPair.getPublic();
+        Key privateKey = keyPair.getPrivate();
+        byte[] publicKeyBytes = publicKey.getEncoded();
+        byte[] privateKeyBytes = privateKey.getEncoded();
+        String publicKeyBase64 = new BASE64Encoder().encode(publicKeyBytes);
+        String privateKeyBase64 = new BASE64Encoder().encode(privateKeyBytes);
+        System.out.println("publicKeyBase64.length():" + publicKeyBase64.length());
+        System.out.println("publicKeyBase64:" + publicKeyBase64);
+        System.out.println("privateKeyBase64.length():" + privateKeyBase64.length());
+        System.out.println("privateKeyBase64:" + privateKeyBase64);
     }
 
     /***

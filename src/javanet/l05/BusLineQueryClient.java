@@ -54,11 +54,11 @@ class ClientThread implements Runnable {
 
     @Override
     public void run() {
+        String line = null;
         try {
-            String content = null;
-            while ((content = br.readLine()) != null) {
-                //不断读取Socket输入流中的内容，并将这些内容打印出来
-                System.out.println(content);
+            while ((line = br.readLine()) != null) {
+                //读取服务器发送的站点信息打印出来
+                System.out.println(line);
             }
         } catch (IOException e) {
             e.printStackTrace();

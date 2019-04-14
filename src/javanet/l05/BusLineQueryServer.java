@@ -11,7 +11,6 @@ package javanet.l05;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Scanner;
 
 /**
  * 功能描述:
@@ -24,11 +23,11 @@ import java.util.Scanner;
 public class BusLineQueryServer {
     public static void main(String[] args) throws IOException {
         ServerSocket ss = new ServerSocket(25000);
-        Socket s = ss.accept();
-        //启动子线程
-        new Thread(new ServerThread(s)).start();
-        Scanner scanner = new Scanner(System.in);
-
+        while (true) {
+            Socket s = ss.accept();
+            //启动子线程
+            new Thread(new ServerThread(s)).start();
+        }
     }
 }
 
@@ -48,14 +47,37 @@ class ServerThread implements Runnable {
     @Override
     public void run() {
         try {
-            BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("D:\\IDEA\\javaNetwork\\src\\javanet\\l05\\route.txt")));
+            //获取用户输入的公交车编号
+            String busNum = br.readLine();
+
+            LineNumberReader reader = new LineNumberReader(new InputStreamReader(new FileInputStream("D:\\IDEA\\javaNetwork\\src\\javanet\\l05\\route.txt")));
             String line = null;
-            while ((line = br.readLine()) != null) {
-                System.out.println(line);
+            int begin = 0;
+            int end = 0;
+
+            //获取所查询公交车途径站点的开始行号和结束行号
+            while ((line = reader.readLine()) != null) {
+                if (line.contains("<" + busNum + ">")) {
+                    begin = reader.getLineNumber() + 1;
+                }
+                if (line.contains(busNum + "--END")) {
+                    end = reader.getLineNumber();
+                }
             }
-            //将数据写入socket流中
+            reader.close();
+
             PrintStream ps = new PrintStream(s.getOutputStream());
-            ps.println("ssss");
+            //获取开始后到结束行的内容
+            LineNumberReader lr = new LineNumberReader(new InputStreamReader(new FileInputStream("D:\\IDEA\\javaNetwork\\src\\javanet\\l05\\route.txt")));
+            while ((line = lr.readLine()) != null) {
+                for (int i = begin; i < end; i++) {
+                    if (lr.getLineNumber() == i) {
+                        //将站点信息写入socket流中
+                        ps.println(line);
+                    }
+                }
+            }
+            lr.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

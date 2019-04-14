@@ -21,7 +21,7 @@ import java.net.URL;
  */
 public class MathematicsServer {
     public static void main(String[] args) throws IOException {
-        URL url = new URL("http://localhost:8888/practice/calculator.html?num1=1&num2=2");
+        URL url = new URL("http://localhost:8888/practice3/calculator.html?num1=1&num2=2");
         System.out.println(url.getQuery());
 
     }

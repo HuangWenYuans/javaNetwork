@@ -6,7 +6,7 @@
  * Description:
  */
 
-package javanet.c05.practice1;
+package javanet.c05.practice1.no2;
 
 import java.net.MalformedURLException;
 import java.net.URL;
