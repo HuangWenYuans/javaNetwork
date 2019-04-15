@@ -252,20 +252,6 @@ public class WebBrowser extends JFrame implements HyperlinkListener, PropertyCha
             String href = url.toString();
             // 启动动画，当网页被加载完成时，触发propertyChanged事件，动画停止。
             startAnimation("加载 " + href + "...");
-
-            // 设置显示HTML面板的page属性为待访问的URL，
-            // 在这个方法里，将打开URL，将URL的流显示在textPane中。
-            // 当完全打开后，该方法才结束。.
-            /*String vNewReportFileName = "D:\\temp.html";
-            File f = new File(vNewReportFileName);
-            FileWriter fw = new FileWriter(f, false);
-            System.out.println(href);
-
-            String html=new Httpcli().visit(href);
-            fw.write(new String(html.getBytes("iso-8859-1"),"gbk"));
-            fw.flush();
-            fw.close();
-            textPane.setPage(new URL("file:///"+vNewReportFileName)); */
             textPane.setPage(url);
             // 页面打开后，将浏览器窗口的标题设为URL
             this.setTitle(href);
