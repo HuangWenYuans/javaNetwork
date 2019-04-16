@@ -31,7 +31,7 @@ public class Request {
         parameterMapValues = new HashMap<>();
     }
 
-    public Request(InputStream is){
+    public Request(InputStream is) {
         this();
         this.is = is;
         try {
