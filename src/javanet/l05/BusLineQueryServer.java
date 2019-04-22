@@ -9,8 +9,7 @@
 package javanet.l05;
 
 import java.io.*;
-import java.net.ServerSocket;
-import java.net.Socket;
+import java.net.*;
 
 /**
  * 功能描述:
@@ -26,6 +25,7 @@ public class BusLineQueryServer {
         while (true) {
             Socket s = ss.accept();
             //启动子线程
+            new Thread(new ServerThread(s)).start();
             new Thread(new ServerThread(s)).start();
         }
     }
@@ -57,10 +57,10 @@ class ServerThread implements Runnable {
 
             //获取所查询公交车途径站点的开始行号和结束行号
             while ((line = reader.readLine()) != null) {
-                if (line.contains("<" + busNum + ">")) {
+                if (line.equals("<" + busNum + ">")) {
                     begin = reader.getLineNumber() + 1;
                 }
-                if (line.contains(busNum + "--END")) {
+                if (line.equals(busNum + "--END")) {
                     end = reader.getLineNumber();
                 }
             }
